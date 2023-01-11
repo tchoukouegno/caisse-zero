@@ -1,0 +1,104 @@
+.menuPrincipalUser {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transform: translate3d(0, 100px, 0);
+  position: relative;
+}
+.sous-menuPrincipalUser {
+  display: flex;
+  justify-content: space-between;
+}
+h4 {
+  font-size: 25px;
+}
+.containmenuPrincipalUser {
+  width: 500px;
+  padding: 50px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.menuPrincipalUsericon {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 150px;
+}
+.Usericonmenu {
+  width: 35px !important;
+  height: 35px !important;
+  background: #f7bf52;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+}
+.Usericonmenugestion {
+  width: 35px !important;
+  height: 35px !important;
+  background: #79526f;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+}
+.Usericonmenureports {
+  width: 35px !important;
+  height: 35px !important;
+  background: black;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+}
+.Usericonmenutabord {
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+}
+.Usericonmenuspan {
+  color: darkgray;
+}
+.Usericonmenuspangestion {
+  color: black;
+}
+
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .sous-menuPrincipalUser {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: auto;
+  }
+  .containmenuPrincipalUser {
+    width: 320px;
+    display: flex;
+    padding: 10px;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .sous-menuPrincipalUser {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 35px;
+  }
+  .containmenuPrincipalUser {
+    padding: 10px;
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    margin: auto;
+    font-size: 25px;
+  }
+}

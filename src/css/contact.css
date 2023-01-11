@@ -1,0 +1,180 @@
+.ContactCaisseZero {
+  transform: translate3d(0, 300px, 0);
+}
+
+.containCaisseImg {
+  width: 700px;
+  height: 520px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.containCaisseZero {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+.numberCaisseZero {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.ContactCaisseZerospan {
+  color: brown;
+  font-size: 32px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.formContact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sous-formContact {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.formContactColorLeft {
+  color: brown;
+  opacity: 0.4;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.formContactColorRight {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.mobile {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mobilefix {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.sous-formContactlogos {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-left: 100px;
+}
+.iconsreseausocial {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 1s;
+}
+.iconsreseausocial:hover {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background: black;
+  border-radius: 50%;
+  transform: rotate(360deg);
+}
+
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .ContactCaisseZero {
+    transform: translate3d(0, 300px, 0);
+  }
+
+  .containCaisseZero {
+    transform: translate3d(0, 220px, 0);
+  }
+  .containCaisseZero {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 10px;
+  }
+  .containCaisseImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    padding-top: 50px;
+  }
+  .numberCaisseZero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .formContact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .sous-formContact {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .sous-formContactlogos {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-left: 70px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .ContactCaisseZero {
+    transform: translate3d(0, 300px, 0);
+  }
+
+  .containCaisseZero {
+    transform: translate3d(0, 220px, 0);
+  }
+  .containCaisseZero {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 10px;
+  }
+  .containCaisseImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    padding-top: 50px;
+  }
+  .numberCaisseZero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .formContact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .sous-formContact {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 30px;
+    margin: auto;
+  }
+  .sous-formContactlogos {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-left: 250px;
+    /* margin: auto; */
+  }
+  .ContactCaisseZerospan {
+    text-align: center;
+  }
+  .iconsreseausocial {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 1s;
+  }
+}

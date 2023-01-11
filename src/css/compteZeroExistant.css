@@ -1,0 +1,132 @@
+.compteZeroExistant {
+  position: relative;
+  transform: translate3d(0, 80px, 0);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: auto !important;
+}
+.compteZeroExistantstructure {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 30px;
+}
+.titlecompteZeroExistantstructure {
+  font-size: 25px;
+  color: #f7bf52;
+}
+.nameOfstructurebutton {
+  border-radius: 15px;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: relative;
+  width: 100px;
+  height: 30px;
+  margin: auto;
+  background: #75526f;
+  opacity: 0.3;
+}
+.nameOfstructurebuttonimg {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+.logosImg {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.containerEntreprise {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 250px;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid #75526f;
+  font-size: 20px;
+  color: #f7bf52;
+  border-radius: 5px;
+}
+.buttoncompteZeroExistant {
+  font-size: 20px;
+  width: 400px;
+  font-weight: bold;
+  color: white;
+  padding: 15px;
+  height: 40px;
+  padding-bottom: 40px !important;
+  border: none;
+  background-color: #75526f;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: auto;
+}
+
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .compteZeroExistantstructure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    gap: 30px;
+  }
+  .buttoncompteZeroExistant {
+    font-size: 20px;
+    width: 300px;
+    font-weight: bold;
+    color: white;
+    padding: 15px;
+    height: 40px;
+    padding-bottom: 40px !important;
+    border: none;
+    background-color: #75526f;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    margin: auto;
+  }
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .titlecompteZeroExistantstructure {
+    font-size: 35px;
+    color: #f7bf52;
+  }
+  .containerEntreprise {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 250px;
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #75526f;
+    font-size: 27px;
+    color: #f7bf52;
+    border-radius: 5px;
+  }
+  .buttoncompteZeroExistant {
+    font-size: 30px;
+    width: 500px;
+    font-weight: bold;
+    color: white;
+    padding: 15px;
+    height: 60px;
+    padding-bottom: 40px !important;
+    border: none;
+    background-color: #75526f;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    margin: auto;
+  }
+}

@@ -1,0 +1,146 @@
+.createcompteZero {
+  position: relative;
+  transform: translate3d(0, 150px, 0);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.createcompteZeroLogos {
+  display: flex;
+  gap: 30px;
+  margin: auto;
+  color: #f7bf52;
+  align-items: center;
+
+  font-size: 30px;
+}
+.fileinput {
+  cursor: pointer;
+}
+.file {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
+  object-fit: cover;
+}
+.nameOfstructure {
+  display: flex;
+  gap: 30px;
+  margin: auto;
+  font-size: 19px;
+  color: #f7bf52;
+  align-items: center;
+}
+.nameOfstructurebutton {
+  padding: 19px;
+  border-radius: 15px;
+  border: 1px solid #79526f;
+}
+.containDateLine {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin: auto;
+}
+.dateLine {
+  color: red;
+  font-size: 18px;
+}
+.buttonlogos {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 15px;
+  height: 40px;
+  padding-bottom: 40px !important;
+  border: none;
+  background-color: #79526f;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .createcompteZeroLogos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+    color: #f7bf52;
+    align-items: center;
+
+    font-size: 30px;
+  }
+  .nameOfstructure {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+    font-size: 19px;
+    color: #f7bf52;
+    align-items: center;
+  }
+  .file {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .createcompteZeroLogos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+    color: #f7bf52;
+    align-items: center;
+
+    font-size: 40px;
+  }
+  .nameOfstructure {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+    font-size: 35px;
+    color: #f7bf52;
+    align-items: center;
+  }
+  .file {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    object-fit: cover;
+  }
+  .fileinput {
+    cursor: pointer;
+    font-size: 30px;
+  }
+  .dateLine {
+    color: red;
+    font-size: 30px;
+  }
+  .buttonlogos {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    padding-bottom: 55px !important;
+    border: none;
+    background-color: #79526f;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+}
