@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/caisse-zero/static/css/main.7081c310.css",
+    "main.js": "/caisse-zero/static/js/main.292f1904.js",
+    "static/media/argentCaisse.jpg": "/caisse-zero/static/media/argentCaisse.0b4895fa41393649c85d.jpg",
+    "static/media/homepage31.png": "/caisse-zero/static/media/homepage31.f41a99ec3f0a122b9fb0.png",
+    "static/media/comptableCaisseZero.jpg": "/caisse-zero/static/media/comptableCaisseZero.1e5c61237bffc767c6d5.jpg",
+    "static/media/caisseEuro.jpg": "/caisse-zero/static/media/caisseEuro.ae4ebaa21cdf9bb497e3.jpg",
+    "static/media/fix.jpg": "/caisse-zero/static/media/fix.9045231222ea14540f94.jpg",
+    "static/media/logoCaisse.png": "/caisse-zero/static/media/logoCaisse.b7e4c2db145a31b63808.png",
+    "static/media/photomobile.jpg": "/caisse-zero/static/media/photomobile.5a09af578112264d1a58.jpg",
+    "static/media/dettes.jpg": "/caisse-zero/static/media/dettes.3eb4f0565782c6042299.jpg",
+    "static/media/head.jpg": "/caisse-zero/static/media/head.670740fd16856386db39.jpg",
+    "static/media/transaction.svg": "/caisse-zero/static/media/transaction.39db499c315714c614c2c911e5219465.svg",
+    "static/media/bagmoney.svg": "/caisse-zero/static/media/bagmoney.c294c0870c87a52d1e10a2991778771c.svg",
+    "static/media/instagram.svg": "/caisse-zero/static/media/instagram.f69b238efc79f163a1d76bb6d5149df5.svg",
+    "static/media/twitter.svg": "/caisse-zero/static/media/twitter.360a094bb94887b84baeaa6c506f82e8.svg",
+    "static/media/trombone.svg": "/caisse-zero/static/media/trombone.d44607ff7d85c7583254c6cb26b6343e.svg",
+    "static/media/gestionimmobilier.svg": "/caisse-zero/static/media/gestionimmobilier.6aa3f83679e5e4f877bb7387ac265775.svg",
+    "index.html": "/caisse-zero/index.html",
+    "static/media/triangle.svg": "/caisse-zero/static/media/triangle.53abf52bfc35fc4a3133dc0f285da45c.svg",
+    "static/media/star.svg": "/caisse-zero/static/media/star.59d72c077ab943364396d24b11a2662f.svg",
+    "static/media/achatsventes.svg": "/caisse-zero/static/media/achatsventes.051dc1d4150620d9e631461815d07015.svg",
+    "static/media/linkedin.svg": "/caisse-zero/static/media/linkedin.9495058a339fb1bfc967cb14964a8dcb.svg",
+    "static/media/gestionbudget.svg": "/caisse-zero/static/media/gestionbudget.ac9ded6ecd7d0483d33c16b18db9980c.svg",
+    "static/media/flecheMain.svg": "/caisse-zero/static/media/flecheMain.742c75682a62149b5c22b9550d8d73ca.svg",
+    "static/media/tableaubord.svg": "/caisse-zero/static/media/tableaubord.a0e0acc5b01336578c1324da4840b666.svg",
+    "static/media/facebookf.svg": "/caisse-zero/static/media/facebookf.59c96adc478fe53cd7f960ed6728a054.svg",
+    "static/media/mimize.svg": "/caisse-zero/static/media/mimize.b3510337eba8a670db3d0ba66aa5f413.svg",
+    "static/media/up.svg": "/caisse-zero/static/media/up.7886f7b73768eef9679323e315af766c.svg",
+    "static/media/close.svg": "/caisse-zero/static/media/close.26f35a507cbb42afbfa7bff0d52fe512.svg",
+    "main.7081c310.css.map": "/caisse-zero/static/css/main.7081c310.css.map",
+    "main.292f1904.js.map": "/caisse-zero/static/js/main.292f1904.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7081c310.css",
+    "static/js/main.292f1904.js"
+  ]
+}
