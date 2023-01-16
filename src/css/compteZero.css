@@ -12,11 +12,14 @@
   margin: auto;
   color: #f7bf52;
   align-items: center;
+  font-weight: 600;
 
   font-size: 30px;
 }
 .fileinput {
   cursor: pointer;
+  color: black;
+  font-weight: 600;
 }
 .file {
   width: 300px;
@@ -31,13 +34,15 @@
   gap: 30px;
   margin: auto;
   font-size: 19px;
-  color: #f7bf52;
+  color: orange;
   align-items: center;
+  font-weight: 600;
 }
 .nameOfstructurebutton {
   padding: 19px;
   border-radius: 15px;
   border: 1px solid #79526f;
+  color: black;
 }
 .containDateLine {
   display: flex;
@@ -63,7 +68,29 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
-
+.infoentreprise {
+  transform: translate3d(0, 10px, 0);
+  cursor: pointer;
+}
+.label {
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 200;
+}
+.connexioncreation {
+  border-radius: 5px;
+  background-color: black;
+  width: 20%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+}
 @media all and (min-width: 320px) and (max-width: 767px) {
   .createcompteZeroLogos {
     display: flex;
@@ -91,6 +118,19 @@
     display: flex;
     margin: auto;
     object-fit: cover;
+  }
+  .connexioncreation {
+    border-radius: 5px;
+    background-color: black;
+    width: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 250px;
+    left: 10px;
   }
 }
 

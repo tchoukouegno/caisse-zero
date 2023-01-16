@@ -1,5 +1,6 @@
 import homepage31 from "../images/homepage31.png";
 import newlogo from "../images/newlogo.jpg";
+import "../css/home.css";
 
 export function ImgLogos({ contenairimg, contenairlogo }) {
   return (

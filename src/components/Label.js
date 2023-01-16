@@ -5,9 +5,11 @@ import { NavLink } from "react-router-dom";
 import "../css/formulaire.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Label({ email, mdp, close }) {
+  const navigate = useNavigate();
+
   function closeModal() {
     let bouttonLeft = document.querySelector(".buttonInscriptionLeft");
     let connect = document.querySelector(".connexionnRight");
@@ -20,7 +22,6 @@ export function Label({ email, mdp, close }) {
     imagelogo.style.opacity = 1;
     newlogo.style.opacity = 1;
   }
-  const navigate = useNavigate();
   const initValues = { email: "", password: "" };
 
   const [formValues, setFormValues] = useState(initValues);
@@ -33,7 +34,6 @@ export function Label({ email, mdp, close }) {
   const handSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validateForms(formValues));
-    console.log(formValues.email);
   };
 
   const validateForms = (values) => {
@@ -59,26 +59,44 @@ export function Label({ email, mdp, close }) {
       !values.password === false &&
       !passworD.test(values.password) === false
     ) {
+      const login = {
+        email: values.email,
+        password: values.password,
+      };
+      console.log(login);
+      let loginid = JSON.parse(localStorage.getItem("firstinscription"));
+      console.log(loginid.token);
+
       axios
-        .post("https://caisse0.ubix-group.com/public/index.php/api/login", {
-          email: values.email,
-          password: values.password,
-        })
+        .post(
+          `https://caisse0.ubix-group.com/public/index.php/api/login/${loginid.id}`,
+          {
+            email: values.email,
+            password: values.password,
+          }
+        )
         .then(function (response) {
-          if (response.data.status_code === 200) {
-            window.localStorage.setItem(
-              "user",
-              JSON.stringify({
-                id: response.data.utilisateur,
-                token: response.data.token,
-              })
-            );
+          console.log(response.data.token);
+          console.log(response);
+
+          if (response.data.status_code === 405) {
+            alert("svp rentrer vous inscrire a la page d accueil");
           }
         })
         .catch(function (error) {
           console.log(error);
         });
-      return navigate("/compteZeroNouveau");
+
+      if (
+        loginid.token &&
+        !values.email === false &&
+        !rejectEmail.test(values.email) === false &&
+        !values.password === false &&
+        !passworD.test(values.password) === false
+      ) {
+        console.log(true);
+        return navigate("/compteZeroNouveau");
+      }
     } else {
       return errors;
     }
@@ -120,6 +138,7 @@ export function Label({ email, mdp, close }) {
         <span className="formErrors">{formErrors.password}</span>
 
         <input className="btn-submit" type="submit" value="Entrez" />
+        <span className="formErrors">{formErrors.email}</span>
 
         <NavLink to="/" className="forgetmdp">
           Mot de Passe Oublié?

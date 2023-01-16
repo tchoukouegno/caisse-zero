@@ -124,6 +124,12 @@ th {
     gap: 20px;
     padding-left: 45px;
   }
+  .containhandleuserspan {
+    transform: translate3d(0, 5px, 0);
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+  }
   .invitationuser {
     display: flex;
     flex-direction: column;
@@ -187,7 +193,7 @@ th {
     border-radius: 20px;
     font-size: 25px;
     color: #ffffff;
-    bottom: -150px;
+    top: -30px;
     right: 100px;
     border: none;
     cursor: pointer;
@@ -195,6 +201,8 @@ th {
     z-index: 3;
     text-decoration: none;
     text-align: center;
+
+    /* rotate: 90deg; */
   }
 }
 
@@ -320,12 +328,13 @@ th {
     font-size: 35px;
     color: #ffffff;
     bottom: -150px;
-    right: 200px;
+    right: -20px;
     border: none;
     cursor: pointer;
     opacity: 1;
     z-index: 3;
     text-decoration: none;
     text-align: center;
+    rotate: 90deg;
   }
 }

@@ -1,0 +1,12 @@
+.confirmemail {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+.confirmemail input {
+  margin: auto;
+}
+.confirmemailmessage {
+  font-size: 20px;
+}

@@ -6,7 +6,7 @@ import star from "../images/star.svg";
 import { NavLink } from "react-router-dom";
 export function Footer({ Footernav }) {
   return (
-    <div style={Footernav}>
+    <div style={Footernav} className="Footernav">
       <div className="footernav">
         <div className="navfooter">
           <img src={star} alt="" />

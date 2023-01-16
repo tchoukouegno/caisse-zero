@@ -17,6 +17,7 @@ import { OperationsDiverses } from "./pages/OperationsDiverses";
 import { Achats } from "./pages/Achats";
 import { Ventes } from "./pages/Ventes";
 import { TransfertCpt } from "./pages/TransfertCpt";
+import { ConfirmationEmail } from "./pages/ConfirmationEmail";
 
 export function App() {
   return (
@@ -35,6 +36,7 @@ export function App() {
           <Route path="/ACHATS" element={<Achats />} />
           <Route path="/VENTES" element={<Ventes />} />
           <Route path="/TRANSFERTCPT" element={<TransfertCpt />} />
+          <Route path="/comfirmationEmail" element={<ConfirmationEmail />} />
           <Route
             path="/compteZeroNouveau"
             element={<IdentificationCaisseZero />}

@@ -1,17 +1,27 @@
-/* .Footernav{
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    background: orange;
-    height: 150px;
-    padding: 50px;
-    transform: translate3d(0,50px,0);
-} */
+.parentFooternav {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background: orange;
+  height: 150px;
+  padding: 50px;
+  transform: translate3d(0, 50px, 0);
+}
 .footernav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+/* .parentFooternav{
+  display: "flex",
+  flexDirection: "column",
+  gap: "50px",
+  background: "orange",
+  height: "150px",
+  padding: "50px",
+  transform: "translate3d(0,680px,0)",
+
+} */
 .navfooter {
   display: flex;
   gap: 7px;
@@ -26,4 +36,17 @@
 .navlink {
   color: white;
   font-size: 25px;
+}
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .Footernav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    height: 300px !important;
+  }
+  .footernav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 }

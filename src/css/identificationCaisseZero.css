@@ -1,8 +1,7 @@
 .parentbuton {
   position: relative;
-  
 }
-.imgg{
+.imgg {
   position: absolute;
   left: 40%;
   top: 10px;
@@ -10,9 +9,8 @@
   height: 100px;
   object-fit: cover;
   border-radius: 20px;
-
 }
-.buttonimg{
+.buttonimg {
   width: 50%;
   height: 50%;
   object-fit: cover;

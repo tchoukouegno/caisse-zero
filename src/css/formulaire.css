@@ -93,7 +93,7 @@ form {
   color: orange;
   opacity: 0.7;
 }
-.envoiFormulaire {
+/* .envoiFormulaire {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -108,7 +108,7 @@ form {
   margin: auto;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-}
+} */
 small {
   color: orange;
 }
@@ -119,135 +119,158 @@ small {
     flex-direction: column;
     align-items: flex-start;
   }
+  ::placeholder {
+    font-size: 15px;
+  }
+  .btn-submit {
+    outline: none;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    padding: 15px 23px;
+    margin: 0;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: auto;
+    color: orange;
+  }
 
   .connexionn {
     border-radius: 5px;
-    background-color: #79526f;
-    width: 50%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    height: 420px;
-    position: fixed;
-    top: 20px;
-    left: 50px;
-    display: none;
-    padding-bottom: 150px;
-  }
-  .envoiFormulaire {
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-    transform: translate3d(0, 20px, 0);
-    padding: 11px;
-    height: 40px;
-    border: none;
     background-color: black;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-  }
-  .connexionnRight {
-    border-radius: 5px;
-    background-color: #79526f;
-    width: 50%;
+    width: 70%;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    height: 320px;
+    height: 430px;
     position: fixed;
-    top: 20px;
-    right: 50px;
+    top: 10%;
+    left: 30px;
     display: none;
     padding-bottom: 100px;
+  }
+
+  .connexionnRight {
+    border-radius: 5px;
+    background-color: black;
+    width: 70%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 330px;
+    position: fixed;
+    top: 10%;
+    left: 30px;
+    display: none;
+    padding-bottom: 100px;
+  }
+  .keyemail {
+    margin: 0;
+    padding: 8px;
+    width: 240px;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 30px;
+  }
+  .password {
+    margin: 0;
+    padding: 8px;
+    width: 240px;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 30px;
   }
   .forgetmdp {
     color: red;
   }
 }
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .formErrors {
-    color: red;
-    opacity: 0.7;
-    font-size: 25px;
-  }
-  small {
-    font-size: 22px;
-    /* color: orange; */
-  }
   .connexionn {
     border-radius: 5px;
-    background-color: #79526f;
-    width: 70%;
+    background-color: black;
+    width: 60% !important;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    height: 600px;
+    height: 720px !important;
     position: fixed;
-    top: 20px;
-    left: 150px;
+    top: 10%;
+    left: 120px !important;
     display: none;
-    padding-bottom: 40px;
+    padding-bottom: 100px;
   }
-  .envoiFormulaire {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    transform: translate3d(0, 20px, 0);
-    padding: 11px;
-    height: 60px;
-    border: none;
-    background-color: black;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-  }
+
   .connexionnRight {
     border-radius: 5px;
-    background-color: #79526f;
-    width: 70%;
+    background-color: black;
+    width: 60% !important;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    height: 470px;
+    height: 600px !important;
     position: fixed;
-    top: 20px;
-    right: 50px;
+    top: 10%;
+    left: 120px !important;
     display: none;
+    padding-bottom: 100px;
+  }
+  .keyemail {
+    margin: 0;
+    padding: 8px;
+    width: 400px !important;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 70px;
+  }
+  .password {
+    margin: 0;
+    padding: 8px;
+    width: 400px;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 70px;
+  }
+  .space {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
   form label {
-    color: #f7bf52;
+    color: white;
     font-size: 30px;
     font-weight: 100;
   }
-  form input {
-    width: 100%;
-    height: 50px;
-    border: none;
-    border-radius: 5px;
+  ::placeholder {
+    font-size: 25px !important;
+  }
+  small {
+    color: orange !important;
+    font-size: 20px !important;
+  }
+  .btn-submit {
     outline: none;
-    font-size: 35px;
+    text-transform: capitalize;
+    font-size: 1.4rem !important;
+    padding: 15px 23px;
+    margin: 0;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: auto;
+    color: orange;
+  }
+  .formErrors {
+    color: orange;
+    opacity: 0.7;
+    font-size: 24px;
   }
   .forgetmdp {
-    font-size: 25px;
-    color: red;
+    font-size: 24px;
   }
 }

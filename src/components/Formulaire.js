@@ -6,6 +6,8 @@ import "../css/formulaire.css";
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useRef } from "react";
 
 export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
   const navigate = useNavigate();
@@ -25,18 +27,30 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
   const initValues = { email: "", password: "", confirmpassword: "" };
   const [formValues, setFormValues] = useState(initValues);
   const [formErrors, setFormErrors] = useState({});
+  const inputEmail = useRef(null);
+  const [isSubmit, setIsSubmit] = useState(false);
+
   const handleChanges = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
   const handSubmit = (e) => {
     e.preventDefault();
-    console.log(formValues);
     setFormErrors(validateForms(formValues));
+    setIsSubmit(true);
+    const inputactuelemail = inputEmail.current.value;
+    console.log(inputactuelemail);
+    window.localStorage.setItem(
+      "email",
+      JSON.stringify({
+        email: inputactuelemail,
+      })
+    );
   };
 
   const validateForms = (values) => {
     const errors = {};
+    const emailexist = document.querySelector(".formErrors");
 
     let passworD = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,36}$/;
     let rejectEmail =
@@ -70,7 +84,6 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
         confirmpassword: values.confirmpassword,
       };
       console.log(recuperationFormulaire);
-      console.log(JSON.stringify(recuperationFormulaire));
       fetch("https://caisse0.ubix-group.com/public/index.php/api/register", {
         method: "POST",
         headers: {
@@ -85,12 +98,51 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
         })
 
         .then((result) => {
-          return console.log(result), result;
+          console.log(result);
+
+          // console.log(result.email[0]);
+          // window.localStorage.setItem(
+          //   "first",
+          //   JSON.stringify({
+          //     response: result.email[0],
+          //   })
+          // );
+
+          if (result.status_code === 201) {
+            console.log(true);
+            window.localStorage.setItem(
+              "firstinscription",
+              JSON.stringify({
+                id: result.id,
+                token: result.token,
+              })
+            );
+          } else if (result.email[0]) {
+            alert(
+              "cet email existe deja veuillez rentrer sur la page d'accueil choisir un autre email merci"
+            );
+          }
         });
-      return navigate("/compteZeroNouveau");
-    } else {
-      return errors;
+
+      // let y = JSON.parse(localStorage.getItem("firstinscription"));
+      // console.log(y.response);
+      // if (y.response === "The email has already been taken") {
+      //   console.log(true);
+      //   return alert("rrrtr");
+      // }
+      if (
+        !values.email === false &&
+        !rejectEmail.test(values.email) === false &&
+        !values.password === false &&
+        !passworD.test(values.password) === false &&
+        !values.confirmpassword === false &&
+        values.password === values.confirmpassword
+      ) {
+        return navigate("/comfirmationEmail");
+      }
+      // return navigate("/comfirmationEmail");
     }
+    return errors;
   };
 
   return (
@@ -103,6 +155,7 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
             type="text"
             name="email"
             id="email"
+            ref={inputEmail}
             placeholder="remplir l'email"
             className="keyemail"
             value={formValues.email}
