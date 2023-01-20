@@ -3,6 +3,7 @@
  */
 
 import "../css/acess.css";
+import axios from "axios";
 import "../css/compteZero.css";
 import "../css/compteZeroExistant.css";
 import "../css/home.css";
@@ -10,6 +11,7 @@ import flecheMain from "../images/flecheMain.svg";
 import { Footer } from "../components/Footer.js";
 import { NavLink } from "react-router-dom";
 import { ImgLogos } from "../components/ImgLogos.js";
+
 export function CompteZeroExistant() {
   const contenairimg = {
     width: "100%",
@@ -35,6 +37,26 @@ export function CompteZeroExistant() {
     padding: "50px",
     transform: "translate3d(0,130px,0)",
   };
+
+  let loginid = JSON.parse(localStorage.getItem("firstinscription"));
+
+  axios
+    .get(
+      `https://caisse0.ubix-group.com/public/index.php/api/caisse/${loginid.id}`,
+      {}
+    )
+    .then(function (response) {
+      console.log(response.data);
+      window.localStorage.setItem(
+        "Response",
+        JSON.stringify({
+          response: response.data,
+        })
+      );
+    });
+
+  let responseData = JSON.parse(localStorage.getItem("Response"));
+
   return (
     <div className="contenair">
       <ImgLogos contenairimg={contenairimg} contenairlogo={contenairlogo} />
@@ -44,19 +66,17 @@ export function CompteZeroExistant() {
             Sélectionnez parmi vos applications
           </span>
           <div className="logosImg">
-            <span className="nameOfstructurebutton">
-              <img
-                src={flecheMain}
-                alt=""
-                className="nameOfstructurebuttonimg"
-              />
-            </span>
+            <input className="nameOfstructurebutton" value={loginid.email} />
+            {/* <img src={flecheMain} alt="" className="nameOfstructurebuttonimg" /> */}
 
-            <div className="containerEntreprise">
-              <span>Entreprise Delta</span>
-              <span>Entreprise Gama</span>
-              <span>Entreprise Omega</span>
-            </div>
+            {responseData.response.map((card) => {
+              console.log(card);
+              return (
+                <div className="containerEntreprise" key={card.id}>
+                  <span>{card.raison_social}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
         <NavLink to="/handleuserr">

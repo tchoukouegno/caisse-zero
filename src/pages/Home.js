@@ -11,9 +11,15 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export function Home() {
-  // const navigate = useNavigate();
-  // const recuperationUser = JSON.parse(localStorage.getItem("user"));
-  // console.log(recuperationUser.token);
+  const navigate = useNavigate();
+  const firstinscription = JSON.parse(localStorage.getItem("firstinscription"));
+  // useEffect(() => {
+  //   if (firstinscription.token) {
+  //     return navigate("/comfirmationEmail");
+  //   } else {
+  //     navigate("/");
+  //   }
+  // });
 
   const contenairimg = {
     width: "100%",

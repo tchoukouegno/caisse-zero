@@ -14,7 +14,7 @@ export function Information({ text, basSection, sectionh2 }) {
         </h2>
       </div>
       <p className="basSection-h2-h2-p">
-        Lorem ipsum dolor sit met,consectetur adipisicing elit,se do eiusmod
+        Lorem ipsu dolor sit met,consectetur adipisicing elit,se do eiusmod
         tempor inciduntut ut labore et dolre magna aliqua.Lorem ipsum dolor sit
         amet consectetur adipisicing elit.
       </p>

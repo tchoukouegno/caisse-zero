@@ -71,15 +71,15 @@ export function Inscription() {
       <Formulaire
         email="E-MAIL"
         mdp="Mot de Passe
- "
+"
         confirmMdp="Confirmation Mdp
- "
+"
         close={close}
       />
       <Label
         email="E-MAIL"
         mdp="Mot de Passe
- "
+"
         close={close}
       />
     </div>

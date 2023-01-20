@@ -18,6 +18,10 @@ import { Achats } from "./pages/Achats";
 import { Ventes } from "./pages/Ventes";
 import { TransfertCpt } from "./pages/TransfertCpt";
 import { ConfirmationEmail } from "./pages/ConfirmationEmail";
+import { InvitationUserConfirmation } from "./pages/InvitationUserConfirmation";
+import { Forgetpassword } from "./pages/Forgetpassword.js";
+import { CreationPassword } from "./pages/CreationPassword.js";
+import { EnregistrementPassword } from "./pages/EnregistrementPassword.js";
 
 export function App() {
   return (
@@ -25,6 +29,8 @@ export function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/inviter" element={<InvitationUserConfirmation />} />
+
           <Route path="/ContactCaisse" element={<ContactCaisseZero />} />
           <Route path="/commentaire" element={<Commentaire />} />
           <Route path="/Inscription" element={<Inscription />} />
@@ -44,7 +50,10 @@ export function App() {
           <Route path="/handleuser" element={<HandleUser />} />
           <Route path="/handleuserr" element={<HandleUser />} />
           <Route path="/compteZero" element={<CompteZero />} />
+          <Route path="/forgetpassword" element={<Forgetpassword />} />
           <Route path="/compteZeroExistant" element={<CompteZeroExistant />} />
+          <Route path="/creationPassword" element={<CreationPassword />} />
+          <Route path="/changepassword" element={<EnregistrementPassword />} />
           <Route path="/controls" element={<ControlsCard />} />
         </Routes>
       </div>

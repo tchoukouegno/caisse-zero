@@ -19,14 +19,14 @@
 }
 .nameOfstructurebutton {
   border-radius: 15px;
-  padding-left: 100px;
-  padding-right: 100px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
   position: relative;
-  width: 100px;
+  width: 250px;
   height: 30px;
   margin: auto;
-  background: #75526f;
-  opacity: 0.3;
+  background: white;
+  font-size: 15px;
 }
 .nameOfstructurebuttonimg {
   width: 30px;
@@ -51,8 +51,9 @@
   padding: 15px;
   border: 1px solid #75526f;
   font-size: 20px;
-  color: #f7bf52;
+  color: red;
   border-radius: 5px;
+  cursor: pointer;
 }
 .buttoncompteZeroExistant {
   font-size: 20px;

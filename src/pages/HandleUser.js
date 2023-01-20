@@ -9,8 +9,13 @@ import { EmailButton } from "../components/EmailButton";
 import { ImgLogos } from "../components/ImgLogos.js";
 import { NavLink } from "react-router-dom";
 import "../css/home.css";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export function HandleUser() {
+  let loginid = JSON.parse(localStorage.getItem("firstinscription"));
+  let raisonsocial = JSON.parse(localStorage.getItem("raisonsociale"));
   const contenairimg = {
     width: "100%",
     height: "250px",
@@ -35,21 +40,80 @@ export function HandleUser() {
     padding: "50px",
     transform: "translate3d(0,130px,0)",
   };
+
+  const initValues = { emailinvitation: "" };
+  const [formValues, setFormValues] = useState(initValues);
+  const handleChanges = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const handSubmit = (e) => {
+    e.preventDefault();
+    const firstinscription = JSON.parse(
+      localStorage.getItem("firstinscription")
+    );
+    console.log(formValues.emailconfirm);
+    console.log(firstinscription.token);
+
+    axios
+      .post("https://caisse0.ubix-group.com/public/index.php/api/invit", {
+        email: formValues.emailinvitation,
+        token: firstinscription.token,
+        id: firstinscription.id,
+      })
+      .then(function (response) {
+        console.log(response);
+        console.log(response.data.email);
+        if (response.data.msg === "Email envoyer") {
+          return (
+            alert("invitation envoye"),
+            window.localStorage.setItem(
+              "Email",
+              JSON.stringify({
+                email: response.data.email,
+              })
+            )
+          );
+        }
+      })
+      .catch(function (error) {
+        if (error.response.statusText === "") {
+          alert("mauvais email entrer un @ et un .");
+        }
+        console.log(error);
+      });
+  };
+
   return (
     <div className="contenair">
       <ImgLogos contenairimg={contenairimg} contenairlogo={contenairlogo} />
       <div className="handleuser">
         <div className="sous-handleuser">
           <h1 className="sous-handleuserh1">AJOUTER UN AUTRE UTILISATEUR</h1>
-          <EmailButton email="toto@gmail.com" entreprise="ENTREPRISE DELTA" />
+          <EmailButton
+            email={loginid.email}
+            entreprise={raisonsocial.raison_social}
+          />
         </div>
         <div className="invitationuser">
           <span className="invitationuserspan">
             Mail de l’utilisateur à inviter
           </span>
-          <button className="invitationuserbutton">Lambda@gmail.com</button>
+          <form onSubmit={handSubmit}>
+            <input
+              type="text"
+              name="emailinvitation"
+              value={formValues.emailinvitation}
+              onChange={handleChanges}
+              className="invitationuserbutton"
+            />
+            <button className="sendinvitationuser">
+              Inviter l’utilisateur
+            </button>
+          </form>
         </div>
-        <button className="sendinvitationuser">Inviter l’utilisateur</button>
+        {/* <button className="sendinvitationuser">Inviter l’utilisateur</button> */}
+
         <h2>Détails des autorisations données</h2>
         <table>
           <thead>

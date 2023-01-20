@@ -4,6 +4,7 @@
 import "../css/acess.css";
 import "../css/compteZero.css";
 import "../css/formulaire.css";
+import "../css/buttonnav.css";
 import { Footer } from "../components/Footer.js";
 import { EmailButton } from "../components/EmailButton";
 import { ImgLogos } from "../components/ImgLogos.js";
@@ -13,26 +14,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/buttonnav.css";
 import axios from "axios";
-import star from "../images/star.svg";
-import { NavLink } from "react-router-dom";
 export function CompteZero() {
   const [showed, setShowed] = useState(false);
   const navigate = useNavigate();
-  let loginid = JSON.parse(localStorage.getItem("firstinscription"));
-  // axios
-  //   .get(
-  //     `https://caisse0.ubix-group.com/public/index.php/api/show/${loginid.id}`,
-  //     {}
-  //   )
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
 
   const initValues = {
     surname: "",
+    email: "",
     phone: "",
     adresse: "",
     logos: "",
@@ -47,15 +35,28 @@ export function CompteZero() {
     setFormValues({ ...formValues, [name]: value });
     console.log(formValues);
   };
+  window.localStorage.setItem(
+    "raisonsociale",
+    JSON.stringify({
+      raison_social: formValues.raisonsociale,
+    })
+  );
   const handSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validateForms(formValues));
+    setFormErrors(validateForm(formValues));
   };
-
-  const validateForms = (values) => {
+  let loginid = JSON.parse(localStorage.getItem("firstinscription"));
+  const validateForm = (values) => {
     const errors = {};
+    let rejectEmail =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!values.surname) {
       errors.surname = "veuillez remplir votre nom et prenom";
+    }
+    if (!values.email) {
+      errors.email = "veuillez remplir de l email";
+    } else if (!rejectEmail.test(values.email)) {
+      errors.email = "mauvais format d email";
     }
     if (!values.phone) {
       errors.phone = "remplir votre numero";
@@ -82,30 +83,60 @@ export function CompteZero() {
       values.logos &&
       values.raisonsociale &&
       values.nif &&
-      values.rccm
+      values.rccm &&
+      values.email &&
+      !rejectEmail.test(values.email) === false
     ) {
-      const yy = {
-        surname: values.surname,
-        phone: values.phone,
+      // console.log(loginid.token);
+      const h = {
+        nom_prenom: values.surname,
+        telephone: values.phone,
         adresse: values.adresse,
-        logos: values.logos,
-        raisonsociale: values.raisonsociale,
+        logo: values.logos,
+        email: values.email,
+        raison_social: values.raisonsociale,
         nif: values.nif,
         rccm: values.rccm,
+        id: loginid.id,
+        token: loginid.token,
       };
-      console.log(yy);
+      console.log(h);
       axios
         .post("https://caisse0.ubix-group.com/public/index.php/api/caisse", {
-          surname: values.surname,
-          phone: values.phone,
+          nom_prenom: values.surname,
+          telephone: values.phone,
           adresse: values.adresse,
-          logos: values.logos,
-          raisonsociale: values.raisonsociale,
+          logo: values.logos,
+          email: values.email,
+          raison_social: values.raisonsociale,
           nif: values.nif,
           rccm: values.rccm,
+          id: loginid.id,
+          token: loginid.token,
         })
         .then(function (response) {
           console.log(response);
+          if (response.data.msg === "bien enregistrer") {
+            window.localStorage.setItem(
+              "firstinscription",
+              JSON.stringify({
+                raison_social: response.data.raison_social,
+                email: response.data.email,
+                id: loginid.id,
+                token: loginid.token,
+              })
+            );
+            return (
+              alert(
+                " felicitation vous etes actuellement administrateur de votre entreprise créee"
+              ),
+              navigate("/handleuser")
+            );
+          } else if (response.data.code === 405) {
+            return (
+              alert(" cette caisse existe deja"), navigate("/compteZeroNouveau")
+            );
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -136,7 +167,8 @@ export function CompteZero() {
     background: "orange",
     height: "150px",
     padding: "50px",
-    transform: "translate3d(0,900px,0)",
+    transform: "translate3d(0,800px,0)",
+    display: "block",
   };
   const [file, setFile] = useState();
 
@@ -144,7 +176,6 @@ export function CompteZero() {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
   };
-  const emaill = JSON.parse(localStorage.getItem("email")).email;
 
   return (
     <div className="contenair">
@@ -154,10 +185,13 @@ export function CompteZero() {
           <span>Telecharger le logo de votre Entreprise</span>
           <input type="file" className="fileinput" onChange={handleChanges} />
         </div>
-        <EmailButton email={emaill} entreprise={formValues.raisonsociale} />
+        <EmailButton
+          email={loginid.email}
+          entreprise={formValues.raisonsociale}
+        />
         <img src={file} alt="" className="file" />
         <div className="nameOfstructure">
-          <span>information à remplir</span>
+          <span>veuillez cliquer sur ce bouton deroulant</span>
           <img
             src={up}
             alt=""
@@ -181,7 +215,7 @@ export function CompteZero() {
             <form className="space" onSubmit={handSubmit}>
               <div className="space">
                 <label htmlFor="email" className="label">
-                  NOM ET PRENOM
+                  REPRESENTANT LEGAL
                 </label>
                 <input
                   type="text"
@@ -190,6 +224,21 @@ export function CompteZero() {
                   placeholder="remplir le nom et prenom"
                   className="keyemail"
                   value={formValues.surname}
+                  onChange={handleChange}
+                />
+              </div>
+              <span className="formErrors">{formErrors.surname}</span>
+              <div className="space">
+                <label htmlFor="email" className="label">
+                  EMAIL
+                </label>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="remplir l'email"
+                  className="keyemail"
+                  value={formValues.email}
                   onChange={handleChange}
                 />
               </div>
@@ -226,7 +275,7 @@ export function CompteZero() {
               <span className="formErrors">{formErrors.adresse}</span>
               <div className="space">
                 <label htmlFor="keyPassword" className="label">
-                  NOM DU LOGO
+                  SIGLE
                 </label>
                 <input
                   type="text"
@@ -295,12 +344,9 @@ export function CompteZero() {
         </div>
         <div className="containDateLine">
           <span className="dateLine">Date limite utilisation 31/12/2022</span>
-          {/* <NavLink to="/handleuser">
-             <button className="buttonlogos">validez creation</button>
-           </NavLink> */}
         </div>
       </div>
-      <Footer Footernav={footernav} />
+      {/* <Footer Footernav={footernav} /> */}
     </div>
   );
 }

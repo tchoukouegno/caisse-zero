@@ -75,20 +75,20 @@ body::-webkit-scrollbar-thumb {
   object-fit: cover;
   cursor: pointer;
 }
-.flecheUp {
+/* .flecheUp {
   width: 35px !important;
   height: 35px !important;
   object-fit: cover;
   cursor: pointer;
   transform: translate3d(0, 12px, 0);
-}
+} */
 .blocFlecheMain {
   position: absolute;
   width: 100px;
   height: 80px;
   border-radius: 20px;
   padding: 10px;
-  background: white;
+  background: red;
   cursor: pointer;
   right: 20px;
   top: 150px;
@@ -204,11 +204,11 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     display: inline-block;
   }
-  .flecheMain {
+  /* .flecheMain {
     width: 20px !important;
     height: 20px !important;
     transform: translate3d(0, 10px, 0);
-  }
+  } */
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -268,11 +268,11 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     display: inline-block;
   }
-  .flecheMain {
+  /* .flecheMain {
     width: 20px !important;
     height: 20px !important;
     transform: translate3d(0, 10px, 0);
-  }
+  } */
   .footerImg {
     width: 300px;
     height: 300px;

@@ -4,22 +4,13 @@
 import { ImgLogos } from "../components/ImgLogos.js";
 import { Footer } from "../components/Footer.js";
 import { Button } from "../components/Button.js";
-import { Deconnexion } from "../components/Deconnexion";
 import "../css/confirmationemail.css";
 import "../css/inscription.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../css/deconnexion.css";
 import axios from "axios";
 
-export function ConfirmationEmail() {
-  const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (!firstinscription.token) {
-  //     return navigate("/");
-  //   }
-  // });
-
+export function CreationPassword() {
   const contenairimg = {
     width: "100%",
     height: "250px",
@@ -54,8 +45,9 @@ export function ConfirmationEmail() {
     cursor: "pointer",
     color: "orange",
   };
+  const navigate = useNavigate();
 
-  const initValues = { emailconfirm: "" };
+  const initValues = { password: "" };
   const [formValues, setFormValues] = useState(initValues);
   const handleChanges = (e) => {
     const { name, value } = e.target;
@@ -64,51 +56,21 @@ export function ConfirmationEmail() {
 
   const handSubmit = (e) => {
     e.preventDefault();
-
-    console.log(formValues.emailconfirm);
-    let firstinscription = JSON.parse(localStorage.getItem("firstinscription"));
+    const idEmailPerdu = JSON.parse(localStorage.getItem("idEmailPerdu"));
+    console.log(idEmailPerdu.id);
 
     axios
-      .put(
-        `https://caisse0.ubix-group.com/public/index.php/api/up/${firstinscription.id}`,
-        { code: formValues.emailconfirm }
-      )
-      .then(function (response) {
-        console.log(response);
-        if (response.data.msg1 === "bien verifier") {
-          navigate("/compteZeroNouveau");
-        } else {
-          alert("veuillez remplir le code inscrit dans votre email");
-        }
+      .post("https://caisse0.ubix-group.com/public/index.php/api/pass", {
+        code: formValues.password,
+        id: idEmailPerdu.id,
       })
-      .catch(function (error) {
-        if (error.response.statusText === "") {
-          alert("vous n avez pas mit le code de verification");
-        }
-        console.log(error);
-      });
-  };
-  const renvoyerCode = (e) => {
-    e.preventDefault();
-    const firstinscription = JSON.parse(
-      localStorage.getItem("firstinscription")
-    );
-    console.log(firstinscription.id);
-    console.log(firstinscription.email);
-    axios
-      .put(
-        `https://caisse0.ubix-group.com/public/index.php/api/resend/${firstinscription.id}`,
-        { email: firstinscription.email }
-      )
       .then(function (response) {
         console.log(response);
-        if (response.data.msg === "code a été réenvoyé") {
-          alert(
-            "vous pouvez consulter votre adresse email pour un nouveau code"
-          );
+        if (response.data.msg1 === "code bien recu") {
+          navigate("/changepassword");
+        } else {
+          alert("vous n'avez pas entrer le bon code");
         }
-
-        return response;
       })
       .catch(function (error) {
         console.log(error);
@@ -118,26 +80,23 @@ export function ConfirmationEmail() {
   return (
     <div className="contenair">
       <ImgLogos contenairimg={contenairimg} contenairlogo={contenairlogo} />
-      <Deconnexion />
-
       <div className="confirmemail">
         <p className="confirmemailmessage">
-          veuillez consulter vos emails ou vos spams, puis entrer le code de
-          confirmation
+          veuillez ecrire le code prit dans votre email dans la case vide
         </p>
 
         <div>
           <form onSubmit={handSubmit}>
             <input
               type="text"
-              name="emailconfirm"
+              name="password"
               className="keyemail"
-              value={formValues.emailconfirm}
+              value={formValues.password}
               onChange={handleChanges}
             />
-            <Button enter="Verifier" buttoninput={button} />
+            <Button enter="Envoyer" buttoninput={button} />
           </form>
-          <div onClick={renvoyerCode} className="parentbuttonrenvoyer">
+          {/* <div onClick={renvoyerCode} className="parentbuttonrenvoyer">
             <p className="confirmemailmessage">
               si vous n 'avez pas recu de code dans vos email ou vos spams
               renvoyer le code
@@ -145,7 +104,7 @@ export function ConfirmationEmail() {
             <button className="buttonrenvoyercodeemail">
               renvoyer le code
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer Footernav={footernav} />

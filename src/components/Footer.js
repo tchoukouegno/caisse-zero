@@ -4,7 +4,9 @@
 import "../css/buttonnav.css";
 import star from "../images/star.svg";
 import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 export function Footer({ Footernav }) {
+  const [showed, setShowed] = useState(false);
   return (
     <div style={Footernav} className="Footernav">
       <div className="footernav">

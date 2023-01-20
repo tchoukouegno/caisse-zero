@@ -40,7 +40,6 @@ export function Label({ email, mdp, close }) {
     const errors = {};
 
     let passworD = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,36}$/;
-    let p = document.querySelector(".password");
     let rejectEmail =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!values.email) {
@@ -65,22 +64,31 @@ export function Label({ email, mdp, close }) {
       };
       console.log(login);
       let loginid = JSON.parse(localStorage.getItem("firstinscription"));
-      console.log(loginid.token);
 
       axios
-        .post(
-          `https://caisse0.ubix-group.com/public/index.php/api/login/${loginid.id}`,
-          {
-            email: values.email,
-            password: values.password,
-          }
-        )
+        .post("https://caisse0.ubix-group.com/public/index.php/api/login", {
+          email: values.email,
+          password: values.password,
+        })
         .then(function (response) {
-          console.log(response.data.token);
+          // console.log(response.data.token);
           console.log(response);
+          if (response.data.status_code === 200) {
+            window.localStorage.setItem(
+              "firstinscription",
+              JSON.stringify({
+                id: response.data.id,
+                token: response.data.token,
+                email: response.data.email,
+              })
+            );
+          }
 
           if (response.data.status_code === 405) {
-            alert("svp rentrer vous inscrire a la page d accueil");
+            return (
+              alert("svp rentrer vous inscrire a la page d accueil"),
+              navigate("/")
+            );
           }
         })
         .catch(function (error) {
@@ -88,7 +96,6 @@ export function Label({ email, mdp, close }) {
         });
 
       if (
-        loginid.token &&
         !values.email === false &&
         !rejectEmail.test(values.email) === false &&
         !values.password === false &&
@@ -139,8 +146,7 @@ export function Label({ email, mdp, close }) {
 
         <input className="btn-submit" type="submit" value="Entrez" />
         <span className="formErrors">{formErrors.email}</span>
-
-        <NavLink to="/" className="forgetmdp">
+        <NavLink to="/forgetpassword" className="forgetmdp">
           Mot de Passe Oublié?
         </NavLink>
       </form>

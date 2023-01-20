@@ -38,14 +38,14 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
     e.preventDefault();
     setFormErrors(validateForms(formValues));
     setIsSubmit(true);
-    const inputactuelemail = inputEmail.current.value;
-    console.log(inputactuelemail);
-    window.localStorage.setItem(
-      "email",
-      JSON.stringify({
-        email: inputactuelemail,
-      })
-    );
+    // const inputactuelemail = inputEmail.current.value;
+    // console.log(inputactuelemail);
+    // window.localStorage.setItem(
+    //   "email",
+    //   JSON.stringify({
+    //     email: inputactuelemail,
+    //   })
+    // );
   };
 
   const validateForms = (values) => {
@@ -100,14 +100,6 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
         .then((result) => {
           console.log(result);
 
-          // console.log(result.email[0]);
-          // window.localStorage.setItem(
-          //   "first",
-          //   JSON.stringify({
-          //     response: result.email[0],
-          //   })
-          // );
-
           if (result.status_code === 201) {
             console.log(true);
             window.localStorage.setItem(
@@ -115,21 +107,19 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
               JSON.stringify({
                 id: result.id,
                 token: result.token,
+                email: result.email,
               })
             );
           } else if (result.email[0]) {
-            alert(
-              "cet email existe deja veuillez rentrer sur la page d'accueil choisir un autre email merci"
+            return (
+              alert(
+                "cet email existe deja veuillez rentrer sur la page d'accueil choisir un autre email merci"
+              ),
+              navigate("/")
             );
           }
         });
 
-      // let y = JSON.parse(localStorage.getItem("firstinscription"));
-      // console.log(y.response);
-      // if (y.response === "The email has already been taken") {
-      //   console.log(true);
-      //   return alert("rrrtr");
-      // }
       if (
         !values.email === false &&
         !rejectEmail.test(values.email) === false &&
@@ -140,7 +130,6 @@ export function Formulaire({ email, mdp, confirmMdp, enter, close }) {
       ) {
         return navigate("/comfirmationEmail");
       }
-      // return navigate("/comfirmationEmail");
     }
     return errors;
   };

@@ -1,0 +1,40 @@
+.blocDeconnexion {
+  width: 150px;
+  height: 100px;
+  background: white;
+  position: absolute;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 60px;
+  top: 25px;
+  cursor: pointer;
+}
+.positionIcon {
+  position: absolute;
+  top: 25px;
+  cursor: pointer;
+}
+.paragrapheDeconnexion {
+  color: orange;
+}
+.clicked {
+  position: absolute;
+  top: 15px;
+  font-size: 20px;
+}
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .blocDeconnexion {
+    width: 100px;
+    height: 100px;
+    background: white;
+    position: absolute;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 60px;
+    top: 25px;
+    cursor: pointer;
+  }
+  .paragrapheDeconnexion {
+    color: red;
+  }
+}
