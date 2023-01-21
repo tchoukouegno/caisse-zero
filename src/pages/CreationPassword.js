@@ -96,15 +96,6 @@ export function CreationPassword() {
             />
             <Button enter="Envoyer" buttoninput={button} />
           </form>
-          {/* <div onClick={renvoyerCode} className="parentbuttonrenvoyer">
-            <p className="confirmemailmessage">
-              si vous n 'avez pas recu de code dans vos email ou vos spams
-              renvoyer le code
-            </p>
-            <button className="buttonrenvoyercodeemail">
-              renvoyer le code
-            </button>
-          </div> */}
         </div>
       </div>
       <Footer Footernav={footernav} />

@@ -40,20 +40,20 @@ export function CompteZeroExistant() {
 
   let loginid = JSON.parse(localStorage.getItem("firstinscription"));
 
-  axios
-    .get(
-      `https://caisse0.ubix-group.com/public/index.php/api/caisse/${loginid.id}`,
-      {}
-    )
-    .then(function (response) {
-      console.log(response.data);
-      window.localStorage.setItem(
-        "Response",
-        JSON.stringify({
-          response: response.data,
-        })
-      );
-    });
+  // axios
+  //   .get(
+  //     `https://caisse0.ubix-group.com/public/index.php/api/caisse/${loginid.id}`,
+  //     {}
+  //   )
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //     window.localStorage.setItem(
+  //       "Response",
+  //       JSON.stringify({
+  //         response: response.data,
+  //       })
+  //     );
+  //   });
 
   let responseData = JSON.parse(localStorage.getItem("Response"));
 

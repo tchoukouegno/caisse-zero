@@ -22,6 +22,7 @@ import { InvitationUserConfirmation } from "./pages/InvitationUserConfirmation";
 import { Forgetpassword } from "./pages/Forgetpassword.js";
 import { CreationPassword } from "./pages/CreationPassword.js";
 import { EnregistrementPassword } from "./pages/EnregistrementPassword.js";
+import { EntrepriseAccueil } from "./pages/EntrepriseAccueil.js";
 
 export function App() {
   return (
@@ -51,6 +52,7 @@ export function App() {
           <Route path="/handleuserr" element={<HandleUser />} />
           <Route path="/compteZero" element={<CompteZero />} />
           <Route path="/forgetpassword" element={<Forgetpassword />} />
+          <Route path="/EntrepriseAccueil" element={<EntrepriseAccueil />} />
           <Route path="/compteZeroExistant" element={<CompteZeroExistant />} />
           <Route path="/creationPassword" element={<CreationPassword />} />
           <Route path="/changepassword" element={<EnregistrementPassword />} />

@@ -20,7 +20,7 @@ export function ButtonNavigation({
         </NavLink>
       </div>
       <div className="inscriptionRightbutton">
-        <NavLink to="/compteZeroExistant">
+        <NavLink to="/EntrepriseAccueil">
           <span style={buttonInscriptionright}>
             Accédez à un caisse zero existant
           </span>
