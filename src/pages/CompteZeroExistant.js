@@ -79,9 +79,9 @@ export function CompteZeroExistant() {
             })}
           </div>
         </div>
-        <NavLink to="/handleuserr">
+        {/* <NavLink to="/handleuserr">
           <button className="buttoncompteZeroExistant">Accedez</button>
-        </NavLink>
+        </NavLink> */}
         <button className="buttoncompteZeroExistant">
           Ajouter un autre utilisateur
         </button>
