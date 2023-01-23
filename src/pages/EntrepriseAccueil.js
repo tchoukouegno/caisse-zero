@@ -46,6 +46,7 @@ export function EntrepriseAccueil() {
     color: "orange",
   };
   let loginid = JSON.parse(localStorage.getItem("firstinscription"));
+  console.log(loginid);
 
   axios
     .get(

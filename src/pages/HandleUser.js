@@ -135,7 +135,7 @@ export function HandleUser() {
             <td className="tdemail" data-label="Mail">
               toto@gmail.com
             </td>
-            <td data-label="Admin">Oui/No n</td>
+            <td data-label="Admin">Oui/Non</td>
             <td data-label="Compta">Non/Visual/M odif</td>
             <td data-label="Stock">Non/Vi sual/M odif</td>
             <td data-label="Com">Non/Vi sual/M odif</td>

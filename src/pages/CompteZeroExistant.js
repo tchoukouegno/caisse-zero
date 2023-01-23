@@ -56,6 +56,7 @@ export function CompteZeroExistant() {
   //   });
 
   let responseData = JSON.parse(localStorage.getItem("Response"));
+  console.log(responseData);
 
   return (
     <div className="contenair">

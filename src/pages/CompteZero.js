@@ -118,7 +118,7 @@ export function CompteZero() {
           console.log(response);
           if (response.data.msg === "bien enregistrer") {
             window.localStorage.setItem(
-              "firstinscription",
+              "secondInscription",
               JSON.stringify({
                 raison_social: response.data.raison_social,
                 email: response.data.email,
