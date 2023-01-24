@@ -54,7 +54,7 @@ export function InvitationUserConfirmation() {
     setFormValues({ ...formValues, [name]: value });
   };
   const Email = JSON.parse(localStorage.getItem("Email"));
-  console.log(Email.email);
+  console.log(Email);
   const handSubmit = (e) => {
     e.preventDefault();
     // const firstinscription = JSON.parse(
@@ -78,7 +78,7 @@ export function InvitationUserConfirmation() {
         console.log(response);
 
         if (response.data.status_code === 200) {
-          navigate("/handleuser");
+          navigate("/handleuserinviter");
         } else if (response.data.status_code === 405) {
           alert("adresse email ne correspond pas au mot de passe");
         }

@@ -23,6 +23,7 @@ import { Forgetpassword } from "./pages/Forgetpassword.js";
 import { CreationPassword } from "./pages/CreationPassword.js";
 import { EnregistrementPassword } from "./pages/EnregistrementPassword.js";
 import { EntrepriseAccueil } from "./pages/EntrepriseAccueil.js";
+import { HandlerUserInviter } from "./pages/HandlerUserInviter.js";
 
 export function App() {
   return (
@@ -50,6 +51,7 @@ export function App() {
           />
           <Route path="/handleuser" element={<HandleUser />} />
           <Route path="/handleuserr" element={<HandleUser />} />
+          <Route path="/handleuserinviter" element={<HandlerUserInviter />} />
           <Route path="/compteZero" element={<CompteZero />} />
           <Route path="/forgetpassword" element={<Forgetpassword />} />
           <Route path="/EntrepriseAccueil" element={<EntrepriseAccueil />} />
